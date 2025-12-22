@@ -1,5 +1,6 @@
 <template>
   <div>
+    <list-item></list-item>
     <ul class="news-list">
       <li v-for="item in this.$store.state.jobs" :key="item.id" class="post">
         <!-- 포인트 영역 -->
@@ -21,11 +22,6 @@
         </div>
       </li>
     </ul>
-
-    <!-- <p v-for="item in this.$store.state.jobs" :key="item.id">
-      <router-link :to="`item/${item.id}`">{{ item.title }}</router-link>
-      <small>{{ item.time_ago }} by {{ item.user }}</small>
-    </p> -->
   </div>
 </template>
 
