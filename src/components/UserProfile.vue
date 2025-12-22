@@ -2,18 +2,21 @@
   <div class="user-container">
     <div><i class="fas fa-user"></i></div>
     <div class="user-description">
-      <!-- <router-link :to="`/user/${fetchedItem.user}`">
-        {{ fetchedItem.user }}
-      </router-link>
+      <div>{{ info.id }}</div>
+      <!-- <router-link :to="`/user/${userInfo.user}`">
+        {{ userInfo.id }}
+      </router-link> -->
       <div class="time">
-        {{ fetchedItem.time_ago }}
-      </div> -->
+        {{ info.created }}
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: { info: Object },
+};
 </script>
 
 <style scoped>

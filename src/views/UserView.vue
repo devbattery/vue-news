@@ -1,6 +1,6 @@
 <template>
   <div>
-    <user-profile></user-profile>
+    <user-profile :info="userInfo"></user-profile>
     <!-- <p>name: {{ userInfo.id }}</p>
     <p>karma: {{ userInfo.karma }}</p>
     <p>created: {{ userInfo.created }}</p> -->
@@ -20,9 +20,7 @@ export default {
     },
   },
   created() {
-    console.log(this.$route.params.id);
     const username = this.$route.params.id;
-    // axios.get(`https://api.hnpwa.com/v0/user/${userName}.json`);
     this.$store.dispatch("FETCH_USER", username);
   },
 };
