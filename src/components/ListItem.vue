@@ -1,10 +1,10 @@
 <template>
   <div>
     <ul class="news-list">
-      <li v-for="item in this.$store.state.news" :key="item.id" class="post">
+      <li v-for="item in listItems" :key="item.id" class="post">
         <!-- 포인트 영역 -->
         <div class="points">
-          {{ item.points }}
+          {{ item.points || 0 }}
         </div>
         <!-- 기타 정보 영역 -->
         <div>
@@ -18,13 +18,6 @@
             }}</router-link>
           </small>
         </div>
-        <!-- <a :href="item.url">{{ item.title }}</a>
-        <small
-          >{{ item.time_ago }} by
-          <router-link :to="`/user/${item.user}`">{{
-            item.user
-          }}</router-link></small
-        > -->
       </li>
     </ul>
   </div>
@@ -46,6 +39,21 @@ export default {
     }
 
     this.$store.dispatch(actionName);
+  },
+  computed: {
+    listItems() {
+      const name = this.$route.name;
+
+      if (name === "news") {
+        return this.$store.state.news;
+      } else if (name === "ask") {
+        return this.$store.state.ask;
+      } else if (name === " jobs") {
+        return this.$store.state.jobs;
+      }
+
+      return null;
+    },
   },
 };
 </script>

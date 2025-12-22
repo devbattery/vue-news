@@ -11,15 +11,5 @@ export default {
   components: {
     ListItem,
   },
-  // computed: {
-  //   ...mapGetters({
-  //     askItems: "fetchedAsk",
-  //   }),
-  // },
-  // created() {
-  //   this.$store.dispatch("FETCH_ASK");
-  // },
 };
 </script>
-
-<style scoped></style>
