@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import { fetchJobsList, fetchNewsList } from "@/api";
+import { fetchAskList, fetchJobsList, fetchNewsList } from "@/api";
 
 Vue.use(Vuex);
 
@@ -8,6 +8,12 @@ export const store = new Vuex.Store({
   state: {
     news: [],
     jobs: [],
+    ask: [],
+  },
+  getters: {
+    fetchedAsk(state) {
+      return state.ask;
+    },
   },
   mutations: {
     SET_NEWS(state, news) {
@@ -16,6 +22,9 @@ export const store = new Vuex.Store({
     },
     SET_JOBS(state, jobs) {
       state.jobs = jobs;
+    },
+    SET_ASK(state, ask) {
+      state.ask = ask;
     },
   },
   actions: {
@@ -31,6 +40,9 @@ export const store = new Vuex.Store({
       fetchJobsList()
         .then(({ data }) => commit("SET_JOBS", data))
         .catch((error) => console.log(error));
+    },
+    FETCH_ASK({ commit }) {
+      fetchAskList().then(({ data }) => commit("SET_ASK", data));
     },
   },
 });
