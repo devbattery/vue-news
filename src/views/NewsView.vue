@@ -9,11 +9,6 @@
 <script>
 // import { fetchNewsList } from "@/api";
 export default {
-  data() {
-    return {
-      users: [],
-    };
-  },
   created() {
     this.$store.dispatch("FETCH_NEWS");
     // fetchNewsList()
