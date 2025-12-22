@@ -8,14 +8,28 @@
         </div>
         <!-- 기타 정보 영역 -->
         <div>
+          <!-- 타이틀 영역 -->
           <p class="news-title">
-            <a :href="item.url">{{ item.title }}</a>
+            <template v-if="item.domain">
+              <a :href="item.url">{{ item.title }}</a>
+            </template>
+            <template v-else>
+              <router-link v-bind:to="`item/${item.id}`">{{
+                item.title
+              }}</router-link>
+            </template>
           </p>
           <small class="link-text">
-            by
-            <router-link class="link-text" :to="`/user/${item.user}`">{{
-              item.user
-            }}</router-link>
+            {{ item.time_ago }} by
+            <router-link
+              v-if="item.user"
+              class="link-text"
+              :to="`/user/${item.user}`"
+              >{{ item.user }}</router-link
+            >
+            <a :href="item.url" v-else>
+              {{ job.domain }}
+            </a>
           </small>
         </div>
       </li>
