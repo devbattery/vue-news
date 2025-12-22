@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <router-link to="/news">News</router-link>
-    <router-link to="/ask">Ask</router-link>
+  <div class="header">
+    <router-link to="/news">News</router-link> |
+    <router-link to="/ask">Ask</router-link> |
     <router-link to="/jobs">Jobs</router-link>
   </div>
 </template>
@@ -10,4 +10,19 @@
 export default {};
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+.header {
+  color: white;
+  background-color: #42b883;
+  display: flex;
+  padding: 8px;
+}
+
+.header .router-link-exact-active {
+  color: #35495e;
+}
+
+.header a {
+  color: white;
+}
+</style>
