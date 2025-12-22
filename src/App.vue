@@ -1,13 +1,17 @@
 <template>
-  <div id="app"><router-view></router-view></div>
+  <div id="app">
+    <header></header>
+    <tool-bar></tool-bar>
+    <main></main>
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
+import ToolBar from "./components/ToolBar.vue";
 export default {
-  methods: {
-    fetchData() {
-      console.log("hello");
-    },
+  components: {
+    ToolBar,
   },
 };
 </script>
